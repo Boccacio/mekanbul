@@ -2,31 +2,66 @@ const database = 'mekanbul';
 use(database);
 db.mekanlar.insertOne(
 {
-  "ad": "Starbucks",
-  "adres": "Centrum Garden",
-  "puan": 5,
+   "ad": "Gramafon Cafe",
+  "adres": "Kepeci, Ülkü Sk",
+  "puan": 3,
   "imkanlar": [
-    "çay",
-    "kahve",
-    "pasta"
+    "Kahve",
+    " Kek",
+    " Kurabiye"
   ],
-  "koordinatlar": [
-    37.83226584629666,
-    30.524732239878013
+  "koordinat": [
+    37.76,
+    30.55
   ],
-  "saatler": [
+   "saatler": [
     {
       "gunler": "Pazartesi-Cuma",
-      "acilis": "9:00",
-      "kapanis": "23:00",
-      "kapali": false
+      "acilis": "9:30",
+      "kapanis": "00:00",
+      "kapali": false,
     },
     {
       "gunler": "Cumartesi-Pazar",
       "acilis": "11:00",
-      "kapanis": "17:00",
-      "kapali": false
+      "kapanis": "19:00",
+      "kapali": true,
     }
-  ]
+  ],
+  "yorumlar": [
+    {
+      "yorumYapan": "Enes",
+      "puan": 4,
+      "yorumMetni": "Kekler güzel.",
+      "tarih": {
+        "$date": "2022-11-27T19:08:13.544Z"
+      },
+      "_id": {
+        "$oid": "6383b59dd42c9f68479d1093"
+      }
+    },
+    {
+      "yorumYapan": "Tolu",
+      "puan": 2,
+      "yorumMetni": "Kurabiye bayattı.",
+      "tarih": {
+        "$date": "2022-11-27T19:09:09.975Z"
+      },
+      "_id": {
+        "$oid": "6383b5d5d42c9f68479d10bd"
+      }
+    },
+    {
+      "yorumYapan": "Fatih",
+      "puan": 4,
+      "yorumMetni": "Kahve güzel.",
+      "tarih": {
+        "$date": "2022-12-03T19:09:21.764Z"
+      },
+      "_id": {
+        "$oid": "6383b5e1d42c9f68479d10e1"
+      }
+    }
+  ],
 }
  );
