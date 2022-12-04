@@ -3,7 +3,8 @@ var express = require('express');
 var router = express.Router();
 
 var apiSecenekleri = {
-    sunucu:  "http://localhost:3000",
+    //sunucu:  "http://localhost:3000",
+    sunucu:  "https://mekanbul.enesc3.repl.co",
     apiYolu: "/api/mekanlar/",
 };
 
