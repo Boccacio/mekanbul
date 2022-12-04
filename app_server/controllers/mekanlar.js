@@ -1,6 +1,6 @@
 const axios = require("axios");
-var express = require('express');
-var router = express.Router();
+//var express = require('express');
+//var router = express.Router();
 
 var apiSecenekleri = {
     //sunucu:  "http://localhost:3000",
@@ -66,18 +66,16 @@ const anaSayfa = function (req, res, next) {
 };
 
 
-var detaySayfaOlustur= function(res, mekanDetaylari){
-    mekanDetaylari.koordinat= {
-        "enlem": mekanDetaylari.koordinat[0],
-        "boylam": mekanDetaylari.koordinat[1],
+var detaySayfaOlustur = function (res, mekanDetaylari) {
+    mekanDetaylari.koordinat = {
+      "enlem": mekanDetaylari.koordinat[0],
+      "boylam": mekanDetaylari.koordinat[1]
     }
-    res.render('mekanBilgisi',
-    {
-        mekanBaslik: mekanDetaylari.ad,
-        mekanDetay: mekanDetaylari
-    }
-    );
-};
+    res.render('mekanbilgisi', {
+      mekanBaslik: mekanDetaylari.ad,
+      mekanDetay: mekanDetaylari
+    });
+  };
 
 var hataGoster = function(res,hata){
     var mesaj;
@@ -92,20 +90,19 @@ var hataGoster = function(res,hata){
     });
 };
 
-
-const mekanBilgisi = function (req, res, next) {
+const mekanBilgisi = function(req, res) {
     axios
-        .get(apiSecenekleri.sunucu+apiSecenekleri.apiYolu+req.params.mekanid)
-        .then(function(response){
-            detaySayfaOlustur(res, response.data)
-        })
-        .catch(function(hata){
-            hataGoster(res, hata)
-        })
-};
-
+    .get(apiSecenekleri.sunucu + apiSecenekleri.apiYolu + req.params.mekanid)
+    .then(function(response) {
+        detaySayfaOlustur(res, response.data);
+    })
+    .catch(function(hata) {
+        hataGoster(res, hata);
+    });
+  };
+  
 const yorumEkle = function (req, res, next) {
-    res.render('yorumekle', { title: 'Yorum ekle' });
+    res.render("yorumekle", { title: "Yorum Sayfası" });
 };
 
 
